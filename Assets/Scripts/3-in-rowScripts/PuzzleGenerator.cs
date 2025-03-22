@@ -28,10 +28,6 @@ public class PuzzleGenerator : MonoBehaviour
         StartCoroutine(RestockEnumrator());
         StartCoroutine(DecreaseSliderOverTime());
     }
-    void Update()
-    {
-    
-    }
 
     void InitializeGrid()
     {
