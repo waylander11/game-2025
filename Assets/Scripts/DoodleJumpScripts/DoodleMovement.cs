@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoodleMovement : MonoBehaviour
 {
@@ -24,5 +25,12 @@ public class DoodleMovement : MonoBehaviour
     void FixetUpdate()
     {
         rb.velocity = new Vector2(moveInput * speed,rb.velocity.y); 
+    }
+    public void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if(collision.collider.name == "Cleaner")
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
