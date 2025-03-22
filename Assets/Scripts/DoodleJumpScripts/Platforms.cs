@@ -5,11 +5,21 @@ using UnityEngine;
 public class Platforms : MonoBehaviour
 {
     public float forceJump;
+    private DoodleMovement playerScript;
+   
+    void Start () {
+
+         GameObject playerObject = GameObject.Find("PlayerDoodleJump");
+        if (playerObject != null)
+        {
+            playerScript = playerObject.GetComponent<DoodleMovement>();
+        }
+    }
     public void OnCollisionEnter2D(Collision2D collision) 
     {
         if (collision.relativeVelocity.y < 0)
         {
-            DoodleMovement.instance.rb.velocity = Vector2.up * forceJump;
+            playerScript.rb.velocity = Vector2.up * forceJump;
         } 
     }
     public void OnCollisionExit2D(Collision2D collision)
