@@ -26,7 +26,8 @@ public class PuzzleGenerator : MonoBehaviour
     {
         InitializeGrid();
         StartCoroutine(RestockEnumrator());
-        StartCoroutine(DecreaseSliderOverTime());
+        StartCoroutine(SliderDecreaseCoroutine());
+        
     }
 
     void InitializeGrid()
@@ -42,14 +43,16 @@ public class PuzzleGenerator : MonoBehaviour
         }
     }
 
-    IEnumerator DecreaseSliderOverTime()
+    IEnumerator SliderDecreaseCoroutine()
     {
         while (true)
         {
+            Debug.Log("Зменшую слайдер: " + sliderValue);
             yield return new WaitForSeconds(1f);
+            sliderValue -= 5f;
             sliderValue = Mathf.Clamp(sliderValue, 0, 100);
-            scoreSlider.value = sliderValue - 1f;
-            scoreSlider.value = Mathf.Lerp(scoreSlider.value, sliderValue, Time.deltaTime * 5);
+            scoreSlider.value = sliderValue;
+            scoreSlider.Rebuild(CanvasUpdate.Layout);
         }
     }
 
