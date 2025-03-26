@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 using UnityEngine.SceneManagement;
+
 
 public class PuzzleGenerator : MonoBehaviour
 {
@@ -11,9 +13,12 @@ public class PuzzleGenerator : MonoBehaviour
     public int totalRows = 9;
     public UnityEngine.UI.Slider scoreSlider;
     private float sliderValue = 100f;
+
     public Text timerText;
     private float timer = 60f;
     public GameObject losePanel;
+
+
 
 
     [System.Serializable]
@@ -41,6 +46,7 @@ public class PuzzleGenerator : MonoBehaviour
             columns.Add(column);
         }
 
+
         losePanel.SetActive(false);
 
         StartCoroutine(RestockEnumrator());
@@ -58,6 +64,7 @@ public class PuzzleGenerator : MonoBehaviour
         }
     }
 
+
     IEnumerator DecreaseSliderOverTime()
     {
         while (true)
@@ -66,8 +73,8 @@ public class PuzzleGenerator : MonoBehaviour
             sliderValue -= 2f; 
             sliderValue = Mathf.Clamp(sliderValue, 0, 100);
             scoreSlider.value = sliderValue;
-        }
-    }
+       }
+       }
     void CheckLoseCondition()
     {
         if (sliderValue <= 0 && timer > 0)
@@ -88,6 +95,7 @@ public class PuzzleGenerator : MonoBehaviour
 
     void OnGUI()
     {
+
         for (int x = 0; x < columns.Count; x++)
         {
             for (int y = 0; y < columns[x].Count; y++)
@@ -207,6 +215,7 @@ public class PuzzleGenerator : MonoBehaviour
 
     IEnumerator DetectCombos()
     {
+
         if (isCheckingCombos) yield break;
             isCheckingCombos = true;
 
@@ -248,6 +257,7 @@ public class PuzzleGenerator : MonoBehaviour
             for (int y = 0; y < combinedLines[x].Count; y++)
             {
                 columns[x][combinedLines[x][y]].texture = null;
+
                 sliderValue += 5f;
                 sliderValue = Mathf.Clamp(sliderValue, 0, 100);
                 scoreSlider.value = sliderValue;
@@ -289,6 +299,7 @@ public class PuzzleGenerator : MonoBehaviour
             for (int y = 0; y < combinedLines[x].Count; y++)
             {
                 columns[combinedLines[x][y]][x].texture = null;
+
                 sliderValue += 5f;
                 sliderValue = Mathf.Clamp(sliderValue, 0, 100);
                 scoreSlider.value = sliderValue;
