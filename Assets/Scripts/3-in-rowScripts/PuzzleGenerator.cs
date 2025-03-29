@@ -3,23 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using UnityEngine.SceneManagement;
-
-
 public class PuzzleGenerator : MonoBehaviour
 {
     public Texture[] elements;
-    public int totalColumns = 9;
-    public int totalRows = 9;
+    [SerializeField] int totalColumns = 9;
+    [SerializeField] int totalRows = 9;
     public UnityEngine.UI.Slider scoreSlider;
-    private float sliderValue = 100f;
-
-    public Text timerText;
-    private float timer = 60f;
-    public GameObject losePanel;
-
-
-
+    public float sliderValue = 100f;
 
     [System.Serializable]
     public class PuzzleElement
@@ -45,25 +35,10 @@ public class PuzzleGenerator : MonoBehaviour
             }
             columns.Add(column);
         }
-
-
-        losePanel.SetActive(false);
-
+        scoreSlider.value = sliderValue; 
         StartCoroutine(RestockEnumrator());
         StartCoroutine(DecreaseSliderOverTime());
-        StartCoroutine(TimerCountdown());
     }
-    IEnumerator TimerCountdown()
-    {
-        while (timer > 0)
-        {
-            yield return new WaitForSeconds(1f);
-            timer--;
-            timerText.text = "Time: " + timer;
-            Debug.Log("Time left: " + timer);
-        }
-    }
-
 
     IEnumerator DecreaseSliderOverTime()
     {
@@ -74,23 +49,6 @@ public class PuzzleGenerator : MonoBehaviour
             sliderValue = Mathf.Clamp(sliderValue, 0, 100);
             scoreSlider.value = sliderValue;
        }
-       }
-    void CheckLoseCondition()
-    {
-        if (sliderValue <= 0 && timer > 0)
-        {
-            losePanel.SetActive(true);
-            Time.timeScale = 0;
-        }
-    }
-    public void RestartGame()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    void Update()
-    {
-        CheckLoseCondition();
     }
 
     void OnGUI()
@@ -102,7 +60,7 @@ public class PuzzleGenerator : MonoBehaviour
             {
                 if (columns[x][y].texture)
                 {
-                    columns[x][y].position = Vector2.Lerp(columns[x][y].position, new Vector2((Screen.width / 2 - (columns.Count * 64) / 2) + x * 64, (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30), Time.deltaTime * 7);
+                    columns[x][y].position = Vector3.Lerp(columns[x][y][z].position, new Vector2((Screen.width / 2 - (columns.Count * 64) / 2) + x * 64, (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30), Time.deltaTime * 7);
                     Rect elementRect = new Rect(columns[x][y].position.x, columns[x][y].position.y, 64, 64);
                     if ((x == selectedColumn && (y == selectedRow - 1 || y == selectedRow + 1)) || ((x == selectedColumn - 1 || x == selectedColumn + 1) && y == selectedRow))
                     {
@@ -257,7 +215,6 @@ public class PuzzleGenerator : MonoBehaviour
             for (int y = 0; y < combinedLines[x].Count; y++)
             {
                 columns[x][combinedLines[x][y]].texture = null;
-
                 sliderValue += 5f;
                 sliderValue = Mathf.Clamp(sliderValue, 0, 100);
                 scoreSlider.value = sliderValue;
