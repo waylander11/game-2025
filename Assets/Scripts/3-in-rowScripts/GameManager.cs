@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("3-in-a-row");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PuzzleGenerator.enabled = true;
     }
 

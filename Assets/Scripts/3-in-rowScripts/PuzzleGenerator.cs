@@ -27,6 +27,7 @@ public class PuzzleGenerator : MonoBehaviour
     [SerializeField] float zOffset = 0f;
     void Start()
     {
+        Time.timeScale = 1; //Треба щоб працював час при рестарті
         for(int x = 0; x < totalColumns; x++)
         {
             List<PuzzleElement> column = new List<PuzzleElement>();
