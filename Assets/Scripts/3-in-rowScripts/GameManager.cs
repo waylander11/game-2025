@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (PuzzleGenerator.sliderValue <= 0 && timer > 0)
         {
+            PuzzleGenerator.enabled = false;
             losePanel.SetActive(true);
             Time.timeScale = 0;
         }

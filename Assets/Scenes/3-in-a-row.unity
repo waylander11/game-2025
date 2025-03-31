@@ -783,6 +783,7 @@ MonoBehaviour:
   totalRows: 5
   scoreSlider: {fileID: 1496706467}
   sliderValue: 100
+  zOffset: -10
 --- !u!1 &1102171740
 GameObject:
   m_ObjectHideFlags: 0

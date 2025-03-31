@@ -1,23 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DoodleMovement : MonoBehaviour
 {
     private float speed = 5f;
+    private float jumpForce = 10f;
     float moveInput;
-    public static DoodleMovement instance;
-    public Rigidbody2D rb { get; private set; } //[SerializeField] private
+    private Rigidbody2D rb;
 
-     
     void Start()
     {
-         if (instance == null)
-        {
-            instance = this;
-        }
-  
         rb = GetComponent<Rigidbody2D>();
     }
     void Update() 
@@ -28,11 +21,12 @@ public class DoodleMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); 
     }
-    public void OnCollisionEnter2D(Collision2D collision) 
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.name == "Cleaner")
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            SceneManager.LoadScene(0);
+            Debug.Log("Touching: ");
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
 }

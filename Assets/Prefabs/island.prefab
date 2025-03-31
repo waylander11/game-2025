@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 4816129612983960845}
   - component: {fileID: 4816129612983960834}
   - component: {fileID: 4816129612983960835}
-  - component: {fileID: 4816129612983960832}
   - component: {fileID: 4816129612983960833}
   m_Layer: 0
   m_Name: island
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,19 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4816129612983960832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4816129612983960838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a48d9bca91cae469b9798efc8977bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceJump: 12
 --- !u!251 &4816129612983960833
 PlatformEffector2D:
   m_ObjectHideFlags: 0
