@@ -60,7 +60,7 @@ public class PuzzleGenerator : MonoBehaviour
             {
                 if (columns[x][y].texture)
                 {
-                    columns[x][y].position = Vector3.Lerp(columns[x][y][z].position, new Vector2((Screen.width / 2 - (columns.Count * 64) / 2) + x * 64, (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30), Time.deltaTime * 7);
+                    columns[x][y].position = Vector2.Lerp(columns[x][y].position, new Vector2((Screen.width / 2 - (columns.Count * 64) / 2) + x * 64, (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30), Time.deltaTime * 7);
                     Rect elementRect = new Rect(columns[x][y].position.x, columns[x][y].position.y, 64, 64);
                     if ((x == selectedColumn && (y == selectedRow - 1 || y == selectedRow + 1)) || ((x == selectedColumn - 1 || x == selectedColumn + 1) && y == selectedRow))
                     {
