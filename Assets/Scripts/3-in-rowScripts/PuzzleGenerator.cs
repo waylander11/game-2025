@@ -15,7 +15,7 @@ public class PuzzleGenerator : MonoBehaviour
     public class PuzzleElement
     {
         public Texture texture;
-        public Vector2 position;
+        public Vector3 position;
     }
     private bool isCheckingCombos = false;
 
@@ -24,6 +24,7 @@ public class PuzzleGenerator : MonoBehaviour
     int selectedColumn = -1;
     int selectedRow = -1;
     int score;
+    [SerializeField] float zOffset = 0f;
     void Start()
     {
         for(int x = 0; x < totalColumns; x++)
@@ -59,8 +60,10 @@ public class PuzzleGenerator : MonoBehaviour
             for (int y = 0; y < columns[x].Count; y++)
             {
                 if (columns[x][y].texture)
-                {
-                    columns[x][y].position = Vector2.Lerp(columns[x][y].position, new Vector2((Screen.width / 2 - (columns.Count * 64) / 2) + x * 64, (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30), Time.deltaTime * 7);
+                    {
+                    columns[x][y].position = Vector3.Lerp(new Vector3(columns[x][y].position.x, columns[x][y].position.y, zOffset),new Vector3(
+                    (Screen.width / 2 - (columns.Count * 64) / 2) + x * 64,
+                    (Screen.height / 2 - (columns[x].Count * 64) / 2) + y * 64 + 30,zOffset),Time.deltaTime * 7);
                     Rect elementRect = new Rect(columns[x][y].position.x, columns[x][y].position.y, 64, 64);
                     if ((x == selectedColumn && (y == selectedRow - 1 || y == selectedRow + 1)) || ((x == selectedColumn - 1 || x == selectedColumn + 1) && y == selectedRow))
                     {
@@ -163,7 +166,7 @@ public class PuzzleGenerator : MonoBehaviour
                     }
                     PuzzleElement element = new PuzzleElement();
                     element.texture = elements[randomElement];
-                    element.position = new Vector2((Screen.width / 2 - (totalColumns * 64) / 2) + x * 64, (-Screen.height - (totalRows * 64) / 2) + y * 64);
+                    element.position = new Vector3((Screen.width / 2 - (totalColumns * 64) / 2) + x * 64,(-Screen.height - (totalRows * 64) / 2) + y * 64,zOffset);
                     columns[x][y] = element;
                 }
             }
