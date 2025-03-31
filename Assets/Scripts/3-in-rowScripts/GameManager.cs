@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text timerText;
     private float timer = 60f;
     [SerializeField] GameObject losePanel;
+    [SerializeField] GameObject pausePanel;
+    private bool isPaused = false;
+    [SerializeField] GameObject winPanel;
     public PuzzleGenerator PuzzleGenerator;
     void Start()
     {
@@ -34,13 +37,41 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    public void RestartGame()
+    void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("3-in-a-row");
+        PuzzleGenerator.enabled = true;
     }
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
         CheckLoseCondition();
     }
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            PuzzleGenerator.enabled = false;
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            PuzzleGenerator.enabled = true;
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+        }
+    }
+    public void GoToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("IslandStart");
+    }
+
 }

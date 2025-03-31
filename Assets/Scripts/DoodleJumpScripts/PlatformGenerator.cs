@@ -4,7 +4,7 @@ public class PlatformGenerator : MonoBehaviour
 {
     [SerializeField] GameObject islandPrefab;
     [SerializeField] Transform player;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] GameManager2 gameManager;
     private float spawnHeight = 5f;
     private float lastSpawnY;
 
@@ -27,6 +27,7 @@ public class PlatformGenerator : MonoBehaviour
         lastSpawnY += spawnHeight;
         Vector3 spawnPosition = new Vector3(randomX, lastSpawnY, 0);
         Instantiate(islandPrefab, spawnPosition, Quaternion.identity);
+        gameManager.AddPlatform();
     }
 }
 

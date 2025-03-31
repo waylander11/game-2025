@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoodleMovement : MonoBehaviour
 {
     private float speed = 5f;
-    private float jumpForce = 10f;
+    private float jumpForce = 11f;
     float moveInput;
     private Rigidbody2D rb;
 
