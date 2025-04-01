@@ -1602,6 +1602,7 @@ MonoBehaviour:
   pausePanel: {fileID: 840454015}
   winPanel: {fileID: 491106572}
   PuzzleGenerator: {fileID: 933874144}
+  sliderValue: {fileID: 0}
 --- !u!1 &1496706466
 GameObject:
   m_ObjectHideFlags: 0

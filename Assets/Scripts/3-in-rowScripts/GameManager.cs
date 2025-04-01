@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     private float timer = 60f;
     [SerializeField] GameObject losePanel;
     [SerializeField] GameObject pausePanel;
-    private bool isPaused = false;
     [SerializeField] GameObject winPanel;
+    private bool isPaused = false;
     public PuzzleGenerator PuzzleGenerator;
+    public PuzzleGenerator sliderValue;
     void Start()
     {
         losePanel.SetActive(false);
@@ -25,7 +26,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timer--;
             timerText.text = "Time: " + timer;
-            Debug.Log("Time left: " + timer);
         }
     }
     void CheckLoseCondition()
@@ -37,12 +37,23 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+    void CheckWinCondition()
+    {
+        if (timer <= 0 && PuzzleGenerator.sliderValue >= 0)
+        {
+            PuzzleGenerator.enabled = false;
+            winPanel.SetActive(true);
+            Time.timeScale = 0;
+            
+        }
+    }
     void RestartGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PuzzleGenerator.enabled = true;
     }
+    
 
     void Update()
     {
@@ -51,6 +62,7 @@ public class GameManager : MonoBehaviour
             TogglePause();
         }
         CheckLoseCondition();
+        CheckWinCondition();
     }
     public void TogglePause()
     {
@@ -68,10 +80,9 @@ public class GameManager : MonoBehaviour
             pausePanel.SetActive(false);
         }
     }
-    public void GoToMenu()
+    void GoToMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("IslandStart");
     }
-
 }
