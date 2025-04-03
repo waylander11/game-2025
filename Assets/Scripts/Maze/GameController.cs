@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
+    [SerializeField] float Speed = 5f;
     private Rigidbody2D rb;
     private Animator animator;
-    private Vector2 movement;
     private float moveX;
     private float moveY;
-
 
     void Start()
     {
@@ -20,7 +18,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
         moveX = Input.GetAxisRaw("Horizontal"); 
         moveY = Input.GetAxisRaw("Vertical");
 
@@ -31,6 +28,6 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = movement.normalized * speed;
+        rb.velocity = new Vector2(moveX * Speed, moveY * Speed);
     }
 }
