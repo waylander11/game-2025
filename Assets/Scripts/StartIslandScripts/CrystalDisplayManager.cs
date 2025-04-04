@@ -5,24 +5,25 @@ using UnityEngine;
 public class CrystalDisplayManager : MonoBehaviour
 {
     [SerializeField] GameObject[] crystalObjects;
-    [SerializeField] Renderer portalRenderer; 
-    [SerializeField] Material[] portalMaterials;
+    [SerializeField] SpriteRenderer portalRenderer; 
+    [SerializeField] Sprite[] portalSprites;
 
     void Start()
-    {
-        int count = 0;
-        for (int i = 0; i < crystalObjects.Length; i++)
         {
-            if (CrystalManager.IsCrystalCollected(i))
+            int count = 0;
+
+            for (int i = 0; i < crystalObjects.Length; i++)
             {
-                crystalObjects[i].SetActive(true);
-                count++;
+                if (CrystalManager.IsCrystalCollected(i))
+                {
+                    crystalObjects[i].SetActive(true);
+                    count++;
+                }
+            }
+
+            if (count < portalSprites.Length)
+            {
+                portalRenderer.sprite = portalSprites[count];
             }
         }
-
-        if (count < portalMaterials.Length)
-        {
-            portalRenderer.material = portalMaterials[count];
-        }
-    }
 }
