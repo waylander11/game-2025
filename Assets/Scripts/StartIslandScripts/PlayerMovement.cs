@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     float horizontal;
     float vertical;
-    public float Speed = 20.0f;
+    public float Speed = 10f;
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>(); 
