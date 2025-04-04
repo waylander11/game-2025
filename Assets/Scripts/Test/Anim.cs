@@ -9,7 +9,7 @@ public class Anim : MonoBehaviour
     private Animator animator;
     private float moveX;
     private float moveY;
-    private string lastAnimation = "WalkDown"; //тут початкова анімація
+    private string lastAnimation = "Walk_Down"; //тут початкова анімація
 
     void Start()
     {
@@ -34,12 +34,25 @@ public class Anim : MonoBehaviour
                 lastAnimation = (moveY > 0) ? "Walk_Up" : "Walk_Down";
             }
 
-            animator.Play(lastAnimation); // тут виклик анімації
-        }
+            animator.Play(lastAnimation);
+        } // тут виклик анімації
+            else
+            {
+            animator.speed = 0f; // Зупиняє анімацію
+            }
+        
     }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveX * speed, moveY * speed);
+    }
+    void LateUpdate()
+    {
+        // Вмикаємо назад анімацію, якщо гравець знову рухається
+        if (moveX != 0 || moveY != 0)
+        {
+            animator.speed = 1f; 
+        }
     }
 }
