@@ -5,12 +5,19 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
-    [SerializeField] private int health = 3;
+    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private float flashDuration = 0.1f;
+    private int currentHealth;
     private Transform player;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+        currentHealth = maxHealth;
     }
     private void Update()
     {
@@ -27,19 +34,38 @@ public class EnemyShooter : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+         currentHealth -= damage;
+        StartCoroutine(FlashRed());
+        
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+     private System.Collections.IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = originalColor;
+    }
+
+    private void Die()
+    {
+        LevelManager.Instance.EnemyKilled();
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject); // Вбиваємо гравця (пізніше можна замінити на систему HP)
-            Destroy(gameObject); 
+            
+            PlayerShooter player = other.GetComponent<PlayerShooter>();
+            if (player != null)
+            {
+                player.TakeDamage(15f);
+            }
+            Destroy(gameObject);
         }
     }
 

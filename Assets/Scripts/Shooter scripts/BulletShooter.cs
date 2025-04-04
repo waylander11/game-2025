@@ -6,7 +6,7 @@ public class BulletShooter : MonoBehaviour
 {
  
     [SerializeField] private float lifetime = 2f;
-
+    [SerializeField] private int damage = 1;
     private void Start()
     {
         Destroy(gameObject, lifetime);
@@ -16,10 +16,14 @@ public class BulletShooter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+         if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject); 
-            Destroy(gameObject); 
+            EnemyShooter enemy = other.GetComponent<EnemyShooter>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
     }
 }

@@ -6,7 +6,7 @@ public class CameraShooter : MonoBehaviour
 {
     [SerializeField] private Transform player; 
     [SerializeField] private float smoothSpeed = 5f; 
-    [SerializeField] private float yOffset = 0f; // Фіксована позиція по Y
+    [SerializeField] private float yOffset = 455f; // Фіксована позиція по Y
 
     private void LateUpdate()
     {

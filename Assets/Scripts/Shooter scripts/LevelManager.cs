@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject winPanel;
+    private int enemiesKilled = 0;
+    private int targetKills = 50;
     private bool isPaused = false;
     private void Update()
     {
@@ -41,6 +45,36 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("IslandStart");
     }
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        UIManager.Instance.UpdateKillsCounter(enemiesKilled, targetKills);
+    }
+
+    public void EnemyKilled()
+    {
+        enemiesKilled++;
+        UIManager.Instance.UpdateKillsCounter(enemiesKilled, targetKills);
+        
+        if (enemiesKilled >= targetKills)
+        {
+            WinGame();
+        }
+    }
+    
+    private void WinGame()
+    {
+        UIManager.Instance.ShowWinScreen();
+        Time.timeScale = 0;
+    }
     void WinTrigger()
     {
 

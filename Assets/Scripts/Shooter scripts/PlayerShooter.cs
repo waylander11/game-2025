@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-
+    public static PlayerShooter Instance;
+    private EnemyShooter EnemyShooter; 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float maxHealth = 100f;
+     private float currentHealth;
     private bool facingRight = true;
 
     private Rigidbody2D rb;
@@ -17,6 +20,8 @@ public class PlayerShooter : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        UIManager.Instance.UpdatePlayerHealth(currentHealth);
     }
 
     private void Update()
@@ -53,6 +58,22 @@ public class PlayerShooter : MonoBehaviour
     {
         rb.velocity = movement * moveSpeed;
     }
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        UIManager.Instance.UpdatePlayerHealth(currentHealth);
+        
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        UIManager.Instance.ShowGameOverScreen();
+        Destroy(gameObject);
+        //EnemyShooter.enabled = false; // Вимикаємо ворога
+    }
 
     private void Shoot()
     {
@@ -76,7 +97,6 @@ private void Flip()
 
         
     }
-
 
 
 
