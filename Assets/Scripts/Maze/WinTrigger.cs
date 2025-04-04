@@ -10,6 +10,7 @@ public class WinTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            CrystalManager.CollectCrystal(1);
             winPanel.SetActive(true);
             Time.timeScale = 0f;
         }

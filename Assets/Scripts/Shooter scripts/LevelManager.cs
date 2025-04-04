@@ -5,14 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
- private void Update()
+    [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject winPanel;
+    private bool isPaused = false;
+    private void Update()
     {
-      
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("IslandStart"); // Повернення на острів
+            TogglePause();
         }
     }
+    void TogglePause()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+        }
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void GoToIsland()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("IslandStart");
+    }
+
+    void WinTrigger()
+    {
+
+    }
+
     
 
 

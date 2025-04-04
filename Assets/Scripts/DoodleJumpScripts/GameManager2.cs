@@ -29,6 +29,7 @@ public class GameManager2 : MonoBehaviour
 
     void WinGame()
     {
+        CrystalManager.CollectCrystal(3); 
         Time.timeScale = 0;
         Panel.SetActive(true);
     }

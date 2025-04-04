@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (timer <= 0 && PuzzleGenerator.sliderValue >= 0)
         {
+            CrystalManager.CollectCrystal(0);
             PuzzleGenerator.enabled = false;
             winPanel.SetActive(true);
             Time.timeScale = 0;
