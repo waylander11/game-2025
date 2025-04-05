@@ -13,9 +13,8 @@ public class UIManager : MonoBehaviour
     //public TextMeshProUGUI killsCounterText;
     public Text killsCounterText;
     
-    [Header("Game Over")]
-    public GameObject winPanel;
-    public GameObject gameOverPanel;
+    [Header("Game Win")]
+    [SerializeField] GameObject winPanel;
 
     private void Awake()
     {
@@ -37,16 +36,11 @@ public class UIManager : MonoBehaviour
     public void UpdateKillsCounter(int kills, int targetKills)
     {
         killsCounterText.text = $"{kills}/{targetKills}";
-    }
-
-    public void ShowWinScreen()
-    {
-        winPanel.SetActive(true);
-    }
-
-    public void ShowGameOverScreen()
-    {
-        gameOverPanel.SetActive(true);
-        Time.timeScale = 0;
+        if (kills >= 50)
+        {
+            CrystalManager.CollectCrystal(2);
+            Time.timeScale = 0;
+            winPanel.SetActive(true);
+        }
     }
 }

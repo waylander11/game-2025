@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrystalManager : MonoBehaviour
 {
@@ -31,6 +32,23 @@ public class CrystalManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save(); //потім видалити ресет
             Debug.Log("Всі кристали обнулено!");
+        }
+    }
+    public static bool AreAllCrystalsCollected()
+    {
+        return TotalCollectedCrystals() == 4;
+    }
+
+    public void TryActivatePortal()
+    {
+        if (AreAllCrystalsCollected())
+        {
+            Debug.Log("Всі кристали зібрано! Переміщення на іншу сцену...");
+            SceneManager.LoadScene("End");
+        }
+        else
+        {
+            Debug.Log("Не всі кристали зібрано! Портал не активний.");
         }
     }
 }
