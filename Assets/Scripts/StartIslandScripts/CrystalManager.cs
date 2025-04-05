@@ -24,4 +24,13 @@ public class CrystalManager : MonoBehaviour
         }
         return count;
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save(); //потім видалити ресет
+            Debug.Log("Всі кристали обнулено!");
+        }
+    }
 }

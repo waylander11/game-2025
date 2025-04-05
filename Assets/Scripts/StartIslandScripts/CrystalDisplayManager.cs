@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrystalDisplayManager : MonoBehaviour
 {
     [SerializeField] GameObject[] crystalObjects;
+    public GameObject[] teleporters;
     [SerializeField] SpriteRenderer portalRenderer; 
     [SerializeField] Sprite[] portalSprites;
 
@@ -24,6 +25,11 @@ public class CrystalDisplayManager : MonoBehaviour
             if (count < portalSprites.Length)
             {
                 portalRenderer.sprite = portalSprites[count];
+            }
+            
+            for (int i = 0; i < teleporters.Length; i++)
+            {
+                teleporters[i].SetActive(i == count);
             }
         }
 }
