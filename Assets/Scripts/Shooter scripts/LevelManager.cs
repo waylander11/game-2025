@@ -12,6 +12,10 @@ public class LevelManager : MonoBehaviour
     private int enemiesKilled = 0;
     private int targetKills = 50;
     private bool isPaused = false;
+    private void Start()
+    {
+       UIManager.Instance.UpdateKillsCounter(enemiesKilled, targetKills);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -56,7 +60,7 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        UIManager.Instance.UpdateKillsCounter(enemiesKilled, targetKills);
+        
     }
 
     public void EnemyKilled()

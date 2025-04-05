@@ -17,11 +17,15 @@ public class PlayerShooter : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+private void Start()
+    {
+       UIManager.Instance.UpdatePlayerHealth(currentHealth);
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        UIManager.Instance.UpdatePlayerHealth(currentHealth);
+        
     }
 
     private void Update()
