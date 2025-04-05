@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrystalDisplayManager : MonoBehaviour
 {
     [SerializeField] GameObject[] crystalObjects;
-    public GameObject[] teleporters;
+    [SerializeField] GameObject[] teleporters;
     [SerializeField] SpriteRenderer portalRenderer; 
     [SerializeField] Sprite[] portalSprites;
 
