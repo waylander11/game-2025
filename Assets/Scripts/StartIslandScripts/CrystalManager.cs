@@ -38,17 +38,11 @@ public class CrystalManager : MonoBehaviour
     {
         return TotalCollectedCrystals() == 4;
     }
-
     public void TryActivatePortal()
     {
         if (AreAllCrystalsCollected())
         {
-            Debug.Log("Всі кристали зібрано! Переміщення на іншу сцену...");
             SceneManager.LoadScene("End");
-        }
-        else
-        {
-            Debug.Log("Не всі кристали зібрано! Портал не активний.");
         }
     }
 }

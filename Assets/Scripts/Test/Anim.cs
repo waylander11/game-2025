@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Anim : MonoBehaviour
 {
-   [SerializeField] private float speed = 3f;
+   [SerializeField] float speed = 10f;
     private Rigidbody2D rb;
     private Animator animator;
     private float moveX;
@@ -13,8 +15,11 @@ public class Anim : MonoBehaviour
 
     void Start()
     {
+        if (rb == null)
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,10 +41,10 @@ public class Anim : MonoBehaviour
 
             animator.Play(lastAnimation);
         } // тут виклик анімації
-            else
-            {
-            animator.speed = 0f; // Зупиняє анімацію
-            }
+        else
+        {
+        animator.speed = 0f; // Зупиняє анімацію
+        }
         
     }
 
@@ -49,7 +54,6 @@ public class Anim : MonoBehaviour
     }
     void LateUpdate()
     {
-        // Вмикаємо назад анімацію, якщо гравець знову рухається
         if (moveX != 0 || moveY != 0)
         {
             animator.speed = 1f; 

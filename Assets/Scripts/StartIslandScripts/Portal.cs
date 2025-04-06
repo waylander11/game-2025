@@ -11,7 +11,12 @@ public class Portal : MonoBehaviour
             CrystalManager crystalManager = FindObjectOfType<CrystalManager>();
             if (crystalManager != null)
             {
+                Debug.Log("Всі кристали зібрано! Завантаження сцени...");
                 crystalManager.TryActivatePortal();
+            }
+            else
+            {
+                Debug.Log("Не всі кристали зібрано! Портал не активний.");
             }
         }
     }   
