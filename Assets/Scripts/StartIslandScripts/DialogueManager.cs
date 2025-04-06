@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DialogueEditor;
 public class DialogueManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public NPCConversation myConversation;
+
+    private bool isPlayerInTrigger = false;
+
+    private void Update()
     {
         
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E)) //
+        {
+            //if (!ConversationManager.Instance.IsConversationActive)
+            //{
+                ConversationManager.Instance.StartConversation(myConversation);
+                 Debug.Log("Starting conversation...");
+           // }
+            //else
+            //{
+               // Debug.Log("Conversation already active.");
+           // }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Debug.Log("Entered trigger zone.");
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInTrigger = true;
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Exited trigger zone.");
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInTrigger = false;
+        }
+    }
+    
+    
 }

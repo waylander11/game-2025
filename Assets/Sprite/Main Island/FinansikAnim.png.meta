@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FinansikAnim_0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 2527
+        width: 258
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c078837097966a14cb61af5c47f154b1
+      internalID: 1543249677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_1
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 2542
+        width: 260
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbf070d30d8112c409e98b68fa6cd6b6
+      internalID: 64484088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_2
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 2527
+        width: 258
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cfd8e760b631f4b961677dc82edb8f
+      internalID: 841299080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_3
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 2542
+        width: 258
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a71210feb1775d488e4a904138ffa68
+      internalID: 726091407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_4
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1839
+        width: 258
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9481dcfd6c3517340b626a463c89b837
+      internalID: -1345150088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_5
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1839
+        width: 260
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c7087a635a441469598192671c8c68
+      internalID: -114983155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_6
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1822
+        width: 260
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af353e337479dbb4397f016edab2e2a9
+      internalID: 1657963863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_7
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 1822
+        width: 258
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6a673cac348d148a16e9e7a53b6b92
+      internalID: 1615085964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_8
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1102
+        width: 258
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4c47bb2706ed54d9f487e04f08a124
+      internalID: 1764537727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_9
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 1087
+        width: 258
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e56a97f772915448dc7846668d0dbf
+      internalID: 1482219967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_10
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1102
+        width: 258
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fac1ba89d14af448e81f76569e4ff8
+      internalID: -1803645714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_11
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 1087
+        width: 258
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962e13859511f50488b481065fa0a81b
+      internalID: -297004943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_12
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 319
+        width: 258
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de8b7c9fd79f754face14986002b423
+      internalID: 663366588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_13
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 319
+        width: 258
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8c53cb365c5b04ea43d646ce3054aa
+      internalID: 1850388326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_14
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 319
+        width: 258
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fc7efbd79e4d046985c7893b622cde
+      internalID: -651651951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FinansikAnim_15
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 319
+        width: 258
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da0ab24f6324624c8a175af905c8bb7
+      internalID: 443678343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +450,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FinansikAnim_0: 1543249677
+      FinansikAnim_1: 64484088
+      FinansikAnim_10: -1803645714
+      FinansikAnim_11: -297004943
+      FinansikAnim_12: 663366588
+      FinansikAnim_13: 1850388326
+      FinansikAnim_14: -651651951
+      FinansikAnim_15: 443678343
+      FinansikAnim_2: 841299080
+      FinansikAnim_3: 726091407
+      FinansikAnim_4: -1345150088
+      FinansikAnim_5: -114983155
+      FinansikAnim_6: 1657963863
+      FinansikAnim_7: 1615085964
+      FinansikAnim_8: 1764537727
+      FinansikAnim_9: 1482219967
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
