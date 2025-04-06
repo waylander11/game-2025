@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrystalDisplayManager : MonoBehaviour
 {
     [SerializeField] GameObject[] crystalObjects;
     [SerializeField] GameObject[] teleporters;
+    [SerializeField] GameObject pausePanel;
+    private bool isPaused = false;
     [SerializeField] SpriteRenderer portalRenderer; 
     [SerializeField] Sprite[] portalSprites;
 
@@ -32,4 +35,30 @@ public class CrystalDisplayManager : MonoBehaviour
                 teleporters[i].SetActive(i == count);
             }
         }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+        }
+    }
+    public void GoToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
