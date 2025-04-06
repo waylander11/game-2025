@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             CrystalManager crystalManager = FindObjectOfType<CrystalManager>();
+            
             if (crystalManager != null)
             {
                 Debug.Log("Всі кристали зібрано! Завантаження сцени...");

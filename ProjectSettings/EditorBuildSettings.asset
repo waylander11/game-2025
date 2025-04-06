@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DoodleJump.unity
     guid: c2de2a4fa48f8c848903057626c0876e
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 047e6a2054a2a064f9bb6585cad92381
   m_configObjects: {}

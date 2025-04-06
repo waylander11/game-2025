@@ -15,6 +15,7 @@ public class Anim : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         if (rb == null)
         rb = GetComponent<Rigidbody2D>();
 

@@ -8,6 +8,11 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject settingPanel;
     [SerializeField] GameObject menuPanel;
+
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void ExitGame()
     {
         Debug.Log("Вихід з гри");
