@@ -21,11 +21,21 @@ public class EnemyShooter : MonoBehaviour
     }
     private void Update()
     {
-        //transform.position += Vector3.left * speed * Time.deltaTime;
+        
 
         if (player != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+            Vector3 directionToPlayer = player.position - transform.position;
+        if (directionToPlayer.x > 0)
+        {
+            transform.localScale = new Vector3(3, 3, 3); 
+        }
+        else
+        {
+            transform.localScale = new Vector3(-3, 3, 3); 
+        }
             //skibidi code
             // Vector2 movement = (player.position - transform.position).normalized * speed * Time.deltaTime;
             //transform.position += (Vector3)movement + (Vector3.left * LevelScroller.speed * Time.deltaTime);

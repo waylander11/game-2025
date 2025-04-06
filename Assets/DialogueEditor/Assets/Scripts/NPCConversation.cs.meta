@@ -3,7 +3,11 @@ guid: 83189876d4d389f43b7dd2e925aa112e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DefaultSprite: {instanceID: 0}
+  - DefaultFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  - ContinueFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  - EndConversationFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

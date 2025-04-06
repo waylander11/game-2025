@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject winPanel;
     private int enemiesKilled = 0;
-    private int targetKills = 50;
+    private int targetKills = 25;
     private bool isPaused = false;
     private void Start()
     {
