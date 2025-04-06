@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     public void UpdateKillsCounter(int kills, int targetKills)
     {
         killsCounterText.text = $"{kills}/{targetKills}";
-        if (kills >= 50)
+        if (kills >= 25)
         {
             CrystalManager.CollectCrystal(2);
             Time.timeScale = 0;
