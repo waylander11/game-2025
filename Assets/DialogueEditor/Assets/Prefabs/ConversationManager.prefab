@@ -327,7 +327,7 @@ MonoBehaviour:
   ScrollSpeed: 1
   BackgroundImage: {fileID: 21300000, guid: bf566e80557acbc45b9a695fcaa25327, type: 3}
   BackgroundImageSliced: 1
-  OptionImage: {fileID: 601121170, guid: cc941372631cdd24fa689ca5f8c23eed, type: 3}
+  OptionImage: {fileID: 0}
   OptionImageSliced: 1
   AllowMouseInteraction: 1
   DialoguePanel: {fileID: 3900108755395677323}
