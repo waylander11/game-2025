@@ -68,22 +68,19 @@ public class LevelManager : MonoBehaviour
         enemiesKilled++;
         UIManager.Instance.UpdateKillsCounter(enemiesKilled, targetKills);
         
-        if (enemiesKilled >= targetKills)
-        {
-            WinGame();
-        }
+        //if (enemiesKilled >= targetKills)
+        //{
+         //   WinGame();
+        //}
     }
     
+    /*
     private void WinGame()
     {
         UIManager.Instance.ShowWinScreen();
         Time.timeScale = 0;
     }
-    void WinTrigger()
-    {
-
-    }
-
+    */
     
 
 

@@ -6,6 +6,7 @@ public class PlayerShooter : MonoBehaviour
 {
     public static PlayerShooter Instance;
     private EnemyShooter EnemyShooter; 
+    [SerializeField] GameObject losePanel;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
@@ -69,14 +70,9 @@ private void Start()
         
         if (currentHealth <= 0)
         {
-            Die();
+            Time.timeScale = 0;
+            losePanel.SetActive(true);
         }
-    }
-    private void Die()
-    {
-        UIManager.Instance.ShowGameOverScreen();
-        Destroy(gameObject);
-        //EnemyShooter.enabled = false; // Вимикаємо ворога
     }
 
     private void Shoot()
