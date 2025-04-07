@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DialogueEditor;
-                
+
+
+// Спочатку цей скрипт відповідав просто за управвління діалогом на NPC, але потім
+// були додані додаткові налаштування, історія змін яких  частково загублена, тому
+// скрипт лишається з назвою DialogueManager 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Conversations")]
-    [SerializeField] private NPCConversation firstConversation; // Первый диалог
-    [SerializeField] private NPCConversation secondConversation; // Второй диалог
+    [SerializeField] private NPCConversation firstConversation; 
+    [SerializeField] private NPCConversation secondConversation; 
                 
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 2f; // Скорость движения NPC
-    [SerializeField] private Transform targetPoint; // Точка, куда движется NPC
+    [SerializeField] private float moveSpeed = 2f; 
+    [SerializeField] private Transform targetPoint; 
                 
     [Header("Animation Settings")]
-     private Animator npcAnimator; // Аниматор NPC
-    [SerializeField] private string walkUpAnimation = "Up"; // Анимация движения вверх
-    [SerializeField] private string idleDownAnimation = "Down"; // Анимация ожидания вниз
+     private Animator npcAnimator; 
+    [SerializeField] private string walkUpAnimation = "Up"; 
+    [SerializeField] private string idleDownAnimation = "Down"; 
                 
-    private bool isPlayerInTrigger = false; // Флаг, находится ли игрок в триггере
-    private bool isMoving = false; // Флаг, движется ли NPC
-    private bool firstConversationCompleted = false; // Флаг, завершён ли первый диалог
+    private bool isPlayerInTrigger = false; 
+    private bool isMoving = false; 
+    private bool firstConversationCompleted = false; 
                 
     private void Start()
     {
